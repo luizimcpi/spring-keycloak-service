@@ -3,19 +3,12 @@ package io.github.luizimcpi.springkeycloakservice.controller;
 import io.github.luizimcpi.springkeycloakservice.security.CustomJwt;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.MessageFormat;
 
 @RestController
-@CrossOrigin(
-        origins = "*",
-        allowedHeaders = "*",
-        methods = { RequestMethod.GET }
-)
 public class HelloController {
 
     @GetMapping("/hello")

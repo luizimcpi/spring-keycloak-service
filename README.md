@@ -13,7 +13,7 @@ password
 Run SpringKeycloakServiceApplication.java class
 ```
 
-## Generate Token (Authentication)
+## Generate Token ( Proxy to keycloak Authentication - Draft...) 
 ```
 curl --request POST \
   --url http://localhost:8080/token \
@@ -22,6 +22,18 @@ curl --request POST \
 	"username": "testuser-1",
 	"password": "testuser1"
 }'
+```
+
+## Generate Token (using keycloak)
+```
+curl --request POST \
+  --url http://localhost:8180/realms/my-test-realm/protocol/openid-connect/token \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data client_id=my-webapp-client \
+  --data grant_type=password \
+  --data username=testuser-1 \
+  --data client_secret=my-webapp-client \
+  --data password=testuser1
 ```
 
 ## Hello Endpoint
